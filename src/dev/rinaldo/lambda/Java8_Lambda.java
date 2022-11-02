@@ -4,30 +4,32 @@ import java.util.stream.IntStream;
 
 /**
  * JAVA 8 - Funções Lambda - Tipos
- * 
+ *
  * @author RinaldoDev
  */
 public class Java8_Lambda {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    // Parênteses
-    Runnable runnable = () -> System.out.println("Se inscreva no canal!");
-    
-    IntStream.range(0, 5)
-      .filter((int n) -> n % 2 == 0)
-      .reduce((n1, n2) -> n1 + n2)
-      .ifPresent(System.out::println);
-      
-    // Chaves
-    IntStream.range(0, 5)
-      .filter((int n) -> {
-        System.out.println("Se inscreva no canal!");
-        return n % 2 == 0;
-      })
-      .forEach(System.out::println);
-    
-  }
+        // Parênteses
+        //interface que tem apenas um unico methodo abstrato tem o @FunctionInterface
+        //a anotação não é obrigatoria
+        Runnable runnable = () -> System.out.println("Se inscreva no canal!");
+
+        IntStream.range(0, 5)
+                .filter((int n) -> n % 2 == 0)
+                .reduce((n1, n2) -> n1 + n2)
+                .ifPresent(System.out::println);
+
+        // Chaves
+        IntStream.range(0, 5)
+                .filter((int n) -> {
+                    System.out.println("Se inscreva no canal!");
+                    return n % 2 == 0;
+                })
+                .forEach(System.out::println);
+
+    }
 
 }
 
